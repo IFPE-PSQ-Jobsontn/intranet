@@ -34,7 +34,7 @@ Este projeto tem como objetivo desenvolver um site para uso interno no IFPE camp
 >> DB_HOST=**HOST**`localhost`  
 >> DB_PORT=**PORTA**`3306`  
 >> DB_DATABASE=**BANCO DE DADOS**`cpes-cgti-intranet-db`    
->> DB_USERNAME=**USUÁRIO**`cpes-cgti-intranet-user` 
+>> DB_USERNAME=**USUÁRIO**`cpes-cgti-intranet-user`     
 >> DB_PASSWORD=**SENHA**`********`  
 * Crie e atualize o banco de dados:
 >`php artisan migrate`  
