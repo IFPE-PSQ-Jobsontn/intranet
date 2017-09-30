@@ -24,8 +24,7 @@ Este projeto utiliza as liguagens e Tecnologias abaixo para desenvolver um site 
 >> Configurações da Aplicação:
 >>> APP_NAME=**Nome da Aplicação**
 >>>
->>> APP_ENV=**local | production**
->>>
+>>> APP_ENV=**local | production**	
 >>> APP_KEY=**Gerada pelo comando `php artisan key:generate`**
 >>> APP_DEBUG=**true | false** 
 >>> APP_LOG_LEVEL=**debug** 
