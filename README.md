@@ -22,12 +22,15 @@ Este projeto utiliza as liguagens e Tecnologias abaixo para desenvolver um site 
 >> `php artisan key:generate`
 > * Edite o arquivo *.env* com suas configurações:
 >> Configurações da Aplicação:
->>> [APP_NAME=**Nome da Aplicação**]
->>> [APP_ENV=**local | production**] 
->>> [APP_KEY=**Gerada pelo comando `php artisan key:generate`**]
+>>> APP_NAME=**Nome da Aplicação**
+>>>
+>>> APP_ENV=**local | production**
+>>>
+>>> APP_KEY=**Gerada pelo comando `php artisan key:generate`**
 >>> APP_DEBUG=**true | false** 
 >>> APP_LOG_LEVEL=**debug** 
 >>> APP_URL=**http://localhost**	
+
 >> Configurações de Banco de dados: 
 >>> A
 
