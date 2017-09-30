@@ -21,6 +21,7 @@ Este projeto utiliza as liguagens e Tecnologias abaixo para desenvolver um site 
 > * Crie a *KEY* de sua aplicação Laravel:
 >> `php artisan key:generate`
 > * Edite o arquivo *.env* com suas configurações:
+>>
 >> Configurações da Aplicação:
 >>> - APP_NAME=**NOME**
 >>> - APP_ENV=**AMBIENTE**`local | production`	
@@ -28,6 +29,7 @@ Este projeto utiliza as liguagens e Tecnologias abaixo para desenvolver um site 
 >>> - APP_DEBUG=**DEBUG**`true | false` 
 >>> - APP_LOG_LEVEL=**LOG_LEVEL**`debug` 
 >>> - APP_URL=**URL**`http://localhost`	
+>>
 >> Configurações de Banco de dados: 
 >>> - DB_CONNECTION=**DRIVER**`mysql`
 >>> - DB_HOST=**HOST**`localhost`
