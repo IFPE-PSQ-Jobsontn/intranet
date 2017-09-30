@@ -11,6 +11,12 @@
         <div class="row">
             {!!
                 Table::withContents($users->items())
+                ->striped()
+                ->callback('Ações', function ($field, $model){
+                    $editar = route('admin.users.edit', ['user' => $model->id]);
+                    $ver = route('admin.users.show', ['user' => $model->id]);
+                    return Button::link('Editar')->asLinkTo($editar) . '|'  . Button::link('Ver')->asLinkTo($ver);
+                })
             !!}
         </div>
         <div class="row">
