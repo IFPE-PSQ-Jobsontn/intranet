@@ -10,5 +10,13 @@ Este projeto utiliza as liguagens e Tecnologias abaixo para desenvolver um site 
 
 ## Instruções para utilizar o projeto:
 
-* Clonar o projeto no Github
-	`git clone https://github.com/cpes-cgti/intranet`
+>* Clonar o projeto no Github:
+>>git clone https://github.com/cpes-cgti/intranet`
+>* Acesse o diretório do projeto
+>>`cd intranet`
+>* Crie o arquivo de ambiente *.env* a partir do arquivo de exemplo *.env.example*
+>>`cp .env.example .env`
+>* Utilize o composer para baixar as dependências do projeto 
+>>`composer update`
+>* Crie a *KEY* de sua aplicação Laravel 
+>>` php artisan key:generate`
