@@ -20,9 +20,6 @@ Este projeto tem como objetivo desenvolver um site para uso interno no IFPE camp
 >`cp .env.example .env`
 * Utilize o composer para baixar as dependências do projeto (composer.json):
 >`composer update`
-* Utilize o npm para baixar as dependências do projeto (package.json):
->`npm install`  
->`npm run dev`
 * Crie a *KEY* de sua aplicação Laravel:
 >`php artisan key:generate`
 * Edite o arquivo *.env* com suas configurações:
@@ -41,6 +38,9 @@ Este projeto tem como objetivo desenvolver um site para uso interno no IFPE camp
 >> DB_DATABASE=**BANCO DE DADOS**`cpes-cgti-intranet-db`    
 >> DB_USERNAME=**USUÁRIO**`cpes-cgti-intranet-user`     
 >> DB_PASSWORD=**SENHA**`********`  
+* Utilize o npm para baixar as dependências do projeto (package.json):
+>`npm install`  
+>`npm run dev`
 * Crie e atualize o banco de dados:
 >`php artisan migrate`  
 >`php artisan migrate:refresh --seed`
