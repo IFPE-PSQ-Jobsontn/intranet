@@ -35,8 +35,8 @@ Este projeto tem como objetivo desenvolver um site para uso interno no IFPE camp
 >> DB_CONNECTION=**DRIVER**`mysql`  
 >> DB_HOST=**HOST**`localhost`  
 >> DB_PORT=**PORTA**`3306`  
->> DB_DATABASE=**BANCO DE DADOS**`cpes-cgti-intranet-db`    
->> DB_USERNAME=**USUÁRIO**`cpes-cgti-intranet-user`     
+>> DB_DATABASE=**BANCO DE DADOS**    
+>> DB_USERNAME=**USUÁRIO**     
 >> DB_PASSWORD=**SENHA**`********`  
 * Utilize o npm para baixar as dependências do projeto (package.json):
 >`npm install`  
