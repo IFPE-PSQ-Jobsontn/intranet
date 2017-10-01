@@ -53,6 +53,12 @@
         @if(Auth::check())
             {!! form($formLogout) !!}
         @endif
+        @if(Session::has('msg_sucesso'))
+            <div class="container">
+                {!! Alert::success(Session::get('msg_sucesso'))->close() !!}
+            </div>
+        @endif
+
         @yield('content')
     </div>
 

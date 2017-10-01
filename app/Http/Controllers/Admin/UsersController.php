@@ -6,6 +6,7 @@ use App\Forms\UserForm;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use Kris\LaravelFormBuilder\Form;
 
 class UsersController extends Controller
@@ -56,6 +57,7 @@ class UsersController extends Controller
         $password = str_random(6);
         $data['password'] = $password;
         User::create($data);
+        Session::flash('msg_sucesso','Usuário criado com sucesso.');
         return redirect()->route('admin.users.index');
 
     }
@@ -108,7 +110,7 @@ class UsersController extends Controller
         }
         $data = $form->getFieldValues();
         $user->update($data);
-
+        Session::flash('msg_sucesso','Usuário mofificado com sucesso.');
         return redirect()->route('admin.users.index');
     }
 
@@ -120,7 +122,13 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        $user->delete();
-        return redirect()->route('admin.users.index');
+        try {
+            $user->delete();
+        } catch (Exception $e) {
+            Session::flash('msg_erro','Falha ao excluir o usuário.');
+        } finally {
+            Session::flash('msg_sucesso','Usuário excluído com sucesso.');
+            return redirect()->route('admin.users.index');
+        }
     }
 }
