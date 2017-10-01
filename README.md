@@ -4,9 +4,11 @@ Este projeto tem como objetivo desenvolver um site para uso interno no IFPE camp
 
 ## Ambiente necessário:
 
-* PHP 7.1 ou superior;
-* Composer 1.5.2 ou superior;
-* Servidor MySQL 5.7 ou superior;
+* PHP 7.1;
+* Composer 1.5.2;
+* Node.js (node 6.11.3 e npm 3.10.10)
+* Servidor MySQL 5.7;
+* Laravel 5.4.36
 
 ## Instruções para utilizar o projeto:
 
@@ -16,8 +18,11 @@ Este projeto tem como objetivo desenvolver um site para uso interno no IFPE camp
 >`cd intranet`
 * Crie o arquivo de ambiente *.env* a partir do arquivo de exemplo *.env.example*:
 >`cp .env.example .env`
-* Utilize o composer para baixar as dependências do projeto:
+* Utilize o composer para baixar as dependências do projeto (composer.json):
 >`composer update`
+* Utilize o npm para baixar as dependências do projeto (package.json):
+>`npm install`  
+>`npm run dev`
 * Crie a *KEY* de sua aplicação Laravel:
 >`php artisan key:generate`
 * Edite o arquivo *.env* com suas configurações:
