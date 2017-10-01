@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h3>Usuário:</h3>
+            <h3>Usuário</h3>
             @php
                 $formDelete = FormBuilder::plain([
                     'id' => 'form-delete',
@@ -13,10 +13,10 @@
                 ])
             @endphp
             {!!
-                Button::primary('Editar')->asLinkTo(route('admin.users.edit',['user' => $user->id]));
+                Button::primary(Icon::pencil() . ' Editar')->asLinkTo(route('admin.users.edit',['user' => $user->id]));
              !!}
             {!!
-                Button::danger('Excluir')
+                Button::danger(Icon::remove() . ' Excluir')
                 ->asLinkTo(route('admin.users.destroy',['user' => $user->id]))
                 ->addAttributes(['onclick' => "event.preventDefault(); document.getElementById(\"form-delete\").submit();"])
              !!}

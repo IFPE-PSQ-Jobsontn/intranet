@@ -7,7 +7,7 @@
             {!!
                 form($form->add('btn-salvar','submit',[
                     'attr' => ['class' => 'btn btn-primary btn-block'],
-                    'label' => 'Salvar',
+                    'label' => Icon::check() . ' Salvar',
                 ]))
             !!}
         </div>
