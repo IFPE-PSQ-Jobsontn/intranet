@@ -10,7 +10,7 @@
                     'url' => route('admin.users.destroy',['user' => $user->id]),
                     'method' => 'DELETE',
                     'style' => 'display: none;'
-                ])
+                ]);
             @endphp
             {!!
                 Button::primary(Icon::pencil() . ' Editar')->asLinkTo(route('admin.users.edit',['user' => $user->id]));
