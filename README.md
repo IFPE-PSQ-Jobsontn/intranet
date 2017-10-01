@@ -27,7 +27,7 @@ Este projeto tem como objetivo desenvolver um site para uso interno no IFPE camp
 >> APP_NAME=**NOME**    
 >> APP_ENV=**AMBIENTE**`local | production`  
 >> APP_KEY=**KEY**`php artisan key:generate`    
->> APP_DEBUG=**DEBUG**`true | false` 
+>> APP_DEBUG=**DEBUG**`true | false`    
 >> APP_LOG_LEVEL=**LOG_LEVEL**`debug`   
 >> APP_URL=**URL**`http://localhost`  
 >  	
