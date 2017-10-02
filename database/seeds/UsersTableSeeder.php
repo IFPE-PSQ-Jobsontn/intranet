@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,9 +12,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Models\User::class)->create([
+        User::create([
             'name' => 'Administrador',
-            'email' => 'laravel@pesqueira.ifpe.edu.br',
+            'email' => 'cgti@pesqueira.ifpe.edu.br',
         ]);
     }
 }
