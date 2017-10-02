@@ -14,7 +14,7 @@ class RolesTableSeeder extends Seeder
     {
 
         Role::create([
-            'name' => 'ADM',
+            'name' => 'ADMIN',
             'description' => 'Perfil do ADMINISTRADOR do sistema.',
         ]);
         Role::create([
@@ -33,6 +33,8 @@ class RolesTableSeeder extends Seeder
             'name' => 'CTUR',
             'description' => 'Perfil dos servidores da Coordenação de Turnos.',
         ]);
+
+        Role::find(1)->users()->attach([1]);
 
     }
 }
