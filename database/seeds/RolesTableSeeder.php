@@ -30,6 +30,10 @@ class RolesTableSeeder extends Seeder
             'description' => 'Perfil dos servidores da Coordenação de Transportes.',
         ]);
         Role::create([
+            'name' => 'CSGM',
+            'description' => 'Perfil dos servidores da Coordenação de Manutenção e Serviços Gerais.',
+        ]);
+        Role::create([
             'name' => 'CTUR',
             'description' => 'Perfil dos servidores da Coordenação de Turnos.',
         ]);
