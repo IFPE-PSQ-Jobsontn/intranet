@@ -20,6 +20,10 @@ class PermissionsTableSeeder extends Seeder
             'name' => '(V)-Usuários',
             'description' => 'Visualizar usuários.',
         ]);
+        Permission::create([
+            'name' => 'Teste',
+            'description' => 'Teste',
+        ]);
         Permission::find(1)->roles()->attach([1,2]);
         Permission::find(2)->roles()->attach([1, 2, 3, 4, 5, 6]);
     }

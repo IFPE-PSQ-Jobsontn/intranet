@@ -60,4 +60,10 @@ class User extends Authenticatable implements TableInterface
     public function roles(){
         return $this->belongsToMany(Role::class);
     }
+
+    public function hasPermission(Permission $permission){
+        $roles = $permission->roles();
+
+    }
+
 }
