@@ -24,7 +24,7 @@ class PermissionsTableSeeder extends Seeder
             'name' => 'Teste',
             'description' => 'Teste',
         ]);
-        Permission::find(1)->roles()->attach([1,2]);
-        Permission::find(2)->roles()->attach([1, 2, 3, 4, 5, 6]);
+        Permission::find(1)->roles()->attach([1,3]);
+        Permission::find(2)->roles()->attach([1, 2, 3, 4, 5, 6, 7]);
     }
 }

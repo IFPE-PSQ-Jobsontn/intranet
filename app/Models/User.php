@@ -3,11 +3,14 @@
 namespace App\Models;
 
 use Bootstrapper\Interfaces\TableInterface;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable implements TableInterface
 {
+
+    use SoftDeletes;
     use Notifiable;
 
     /**
@@ -15,6 +18,7 @@ class User extends Authenticatable implements TableInterface
      *
      * @var array
      */
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
@@ -62,8 +66,12 @@ class User extends Authenticatable implements TableInterface
     }
 
     public function hasPermission(Permission $permission){
-        $roles = $permission->roles();
-
+        $retorno = false;
+        $roles = $permission->roles;
+        foreach ($roles as $role){
+            if ($this->roles->contains('name', $role->name)) $retorno = true;
+        }
+        return $retorno;
     }
 
 }

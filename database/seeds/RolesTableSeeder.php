@@ -18,6 +18,10 @@ class RolesTableSeeder extends Seeder
             'description' => 'Perfil do ADMINISTRADOR do sistema.',
         ]);
         Role::create([
+            'name' => 'Servidor',
+            'description' => 'Perfil comum para todos os servidores.',
+        ]);
+        Role::create([
             'name' => 'TI',
             'description' => 'Perfil dos servidores da Coordenação de Tecnologia da Informação.',
         ]);
