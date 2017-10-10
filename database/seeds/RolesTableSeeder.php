@@ -43,6 +43,11 @@ class RolesTableSeeder extends Seeder
         ]);
 
         Role::find(1)->users()->attach([1]);
+        Role::find(3)->users()->attach([2, 3, 4]);
+        Role::find(4)->users()->attach([5]);
+        Role::find(5)->users()->attach([7]);
+        Role::find(6)->users()->attach([6]);
+        Role::find(7)->users()->attach([8]);
 
     }
 }

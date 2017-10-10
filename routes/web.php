@@ -21,9 +21,25 @@ Route::prefix('admin')->group(function (){
     Route::group([
         'namespace'     => 'Admin\\',
         'as'            => 'admin.',
-        'middleware'    => 'auth'
+        'middleware'    => ['auth', 'can:r_users' ],
     ], function(){
         Route::resource('users','UsersController');
+    });
+
+    Route::group([
+        'namespace'     => 'Admin\\',
+        'as'            => 'admin.',
+        'middleware'    => 'auth'
+    ], function(){
+        Route::resource('roles','RolesController');
+    });
+
+    Route::group([
+        'namespace'     => 'Admin\\',
+        'as'            => 'admin.',
+        'middleware'    => 'auth'
+    ], function(){
+        Route::resource('permissions','PermissionsController');
     });
 
 });

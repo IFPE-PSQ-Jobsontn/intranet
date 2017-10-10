@@ -13,17 +13,14 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
         Permission::create([
-            'name' => '(CMA)-Usuários',
-            'description' => 'Criar, Modificar e Atualizar usuários.',
+            'name' => 'crud_users',
+            'description' => 'Criar, Visualizar, Modificar e Atualizar usuários.',
         ]);
         Permission::create([
-            'name' => '(V)-Usuários',
+            'name' => 'r_users',
             'description' => 'Visualizar usuários.',
         ]);
-        Permission::create([
-            'name' => 'Teste',
-            'description' => 'Teste',
-        ]);
+
         Permission::find(1)->roles()->attach([1,3]);
         Permission::find(2)->roles()->attach([1, 2, 3, 4, 5, 6, 7]);
     }

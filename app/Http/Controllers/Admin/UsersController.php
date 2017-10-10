@@ -6,6 +6,7 @@ use App\Forms\UserForm;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 use Kris\LaravelFormBuilder\Form;
 
@@ -29,6 +30,7 @@ class UsersController extends Controller
      */
     public function create()
     {
+        Gate::authorize('crud_users');
         $form = \FormBuilder::create(UserForm::class, [
             'url' => route('admin.users.store'),
             'method' => 'POST'
