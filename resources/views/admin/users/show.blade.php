@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h3>Usuário</h3>
+            <h3>@lang('labels.new_user')</h3>
             @php
                 $formDelete = FormBuilder::plain([
                     'id' => 'form-delete',
@@ -11,19 +11,18 @@
                     'method' => 'DELETE',
                     'style' => 'display: none;'
                 ]);
+                if (\Illuminate\Support\Facades\Gate::allows('crud_users')) {
+                    echo Button::primary(Icon::pencil() . ' ' . trans('labels.edit'))
+                         ->asLinkTo(route('admin.users.edit',['user' => $user->id]));
+                    echo ' ';
+                    echo Button::danger(Icon::remove() . ' '. trans('labels.delete'))
+                        ->asLinkTo(route('admin.users.destroy',['user' => $user->id]))
+                        ->addAttributes(['onclick' => "event.preventDefault(); document.getElementById(\"form-delete\").submit();"]);
+                    echo form($formDelete);
+                    echo '<br><br>';
+                }
             @endphp
-            {!!
-                Button::primary(Icon::pencil() . ' Editar')->asLinkTo(route('admin.users.edit',['user' => $user->id]));
-             !!}
-            {!!
-                Button::danger(Icon::remove() . ' Excluir')
-                ->asLinkTo(route('admin.users.destroy',['user' => $user->id]))
-                ->addAttributes(['onclick' => "event.preventDefault(); document.getElementById(\"form-delete\").submit();"])
-             !!}
-            {!!
-                form($formDelete);
-             !!}
-            <br><br>
+
             <table class="table table-bordered">
                 <tbody>
                     <tr>
@@ -31,11 +30,11 @@
                         <td>{{$user->id}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">Nome</th>
+                        <th scope="row">@lang('labels.name')</th>
                         <td>{{$user->name}}</td>
                     </tr>
                     <tr>
-                        <th scope="row">E-mail</th>
+                        <th scope="row">@lang('labels.email')</th>
                         <td>{{$user->email}}</td>
                     </tr>
                 </tbody>

@@ -3,11 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h3>Usuário</h3>
+            <h3>@lang('labels.user')</h3>
             {!!
                 form($form->add('btn-editar','submit',[
                     'attr' => ['class' => 'btn btn-primary btn-block'],
-                    'label' => Icon::edit() . ' Alterar',
+                    'label' => Icon::edit() . ' ' . trans('labels.change'),
                 ]))
             !!}
         </div>

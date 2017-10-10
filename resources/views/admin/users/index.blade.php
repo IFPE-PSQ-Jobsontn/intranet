@@ -4,9 +4,11 @@
     <div class="container">
         <div class="row">
             <h3>@lang('labels.users')</h3>
-            {!!
-                Button::primary(Icon::plus() . ' ' . trans('labels.new_user'))->asLinkTo(route('admin.users.create'))
-            !!}
+            @php
+                if (\Illuminate\Support\Facades\Gate::allows('crud_users')) {
+                    echo \Bootstrapper\Facades\Button::primary(Icon::plus() . ' ' . trans('labels.new_user'))->asLinkTo(route('admin.users.create'));
+                }
+            @endphp
         </div>
         <div class="row">
             {!!
@@ -15,7 +17,12 @@
                 ->callback(trans('labels.actions'), function ($field, $model){
                     $editar = route('admin.users.edit', ['user' => $model->id]);
                     $ver = route('admin.users.show', ['user' => $model->id]);
-                    return Button::link(Icon::pencil() . ' ' . trans('labels.edit'))->asLinkTo($editar) . '|'  . Button::link(Icon::search() . ' '. trans('labels.show'))->asLinkTo($ver);
+                    if (\Illuminate\Support\Facades\Gate::allows('crud_users')) {
+                        return Button::link(Icon::pencil() . ' ' . trans('labels.edit'))->asLinkTo($editar) . '|'  . Button::link(Icon::search() . ' '. trans('labels.show'))->asLinkTo($ver);
+                    } else {
+                        return Button::link(Icon::search() . ' '. trans('labels.show'))->asLinkTo($ver);
+                    }
+
                 })
             !!}
             {!! $users->links() !!}

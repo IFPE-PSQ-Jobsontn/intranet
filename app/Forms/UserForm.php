@@ -11,11 +11,11 @@ class UserForm extends Form
         $id = $this->getData('id');
         $this
             ->add('name', 'text',[
-                'label' => 'Nome',
+                'label' => trans('labels.name'),
                 'rules' => 'required|max:255',
             ])
             ->add('email', 'email',[
-                'label' => 'E-mail',
+                'label' => trans('labels.email'),
                 'rules' => "required|max:255|unique:users,email,{$id}"
             ]);
     }

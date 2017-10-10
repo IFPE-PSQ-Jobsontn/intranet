@@ -12,7 +12,9 @@ return [
     'actions' => 'Ações',
 // B
 // C
+    'change' => 'Alterar',
 // D
+    'delete' => 'Excluir',
 // E
     'edit' => 'Editar',
     'email' => 'E-mail',
@@ -41,6 +43,7 @@ return [
     'remember_me' => 'Lembrar-me',
     'roles' => 'Funções',
 // S
+    'save' => 'Salvar',
     'show' => 'Ver',
 // T
 // U
