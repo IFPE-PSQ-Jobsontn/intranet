@@ -17,11 +17,28 @@
     <div id="app">
         @php
             $navbar = Navbar::withBrand(config('app.name'))->inverse();
+
+            $display_users = \Illuminate\Support\Facades\Gate::allows('r_users');
+            $display_roles = \Illuminate\Support\Facades\Gate::allows('r_roles');
+
             if (Auth::check()){
-                $links_admin = [
-                    [ 'Cadastro',
+                $menu_registration = [
+                    [ trans('labels.registration'),
                         [
-                            ['link' => route('admin.users.index'), 'title' => 'Usuários'],
+                            [
+                                'link' => route('admin.users.index'),
+                                'title' => trans('labels.users'),
+                                'linkAttributes' => [
+                                    'style' => 'display: ' . ($display_users ? 'block;' : 'none;'),
+                                ]
+                             ],
+                             [
+                                'link' => route('admin.roles.index'),
+                                'title' => trans('labels.roles'),
+                                'linkAttributes' => [
+                                    'style' => 'display: ' . ($display_roles ? 'block;' : 'none;'),
+                                ]
+                             ],
                         ]
                     ]
                 ];
@@ -30,7 +47,7 @@
                         [
                             [
                                 'link' => route('logout'),
-                                'title' => 'Sair',
+                                'title' => trans('labels.exit'),
                                 'linkAttributes' => [
                                     'onclick' => "event.preventDefault(); document.getElementById(\"form-logout\").submit();"
                                 ]
@@ -45,8 +62,11 @@
                     'style' => 'display: none;'
                 ]);
                 form($formLogout);
-                $navbar->withContent(Navigation::links($links_admin))
-                       ->withContent(Navigation::links($links_logado)->right());
+
+                if ($display_users || $display_roles){
+                    $navbar->withContent(Navigation::links($menu_registration));
+                }
+                $navbar->withContent(Navigation::links($links_logado)->right());
             }
         @endphp
         {!! $navbar !!}

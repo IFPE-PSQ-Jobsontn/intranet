@@ -34,14 +34,6 @@ Route::prefix('admin')->group(function (){
         Route::resource('roles','RolesController');
     });
 
-    Route::group([
-        'namespace'     => 'Admin\\',
-        'as'            => 'admin.',
-        'middleware'    => 'auth'
-    ], function(){
-        Route::resource('permissions','PermissionsController');
-    });
-
 });
 
 Route::get('/home', 'HomeController@index')->name('home');

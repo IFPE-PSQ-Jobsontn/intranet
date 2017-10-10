@@ -39,7 +39,7 @@ class User extends Authenticatable implements TableInterface
      */
     public function getTableHeaders()
     {
-        return ['ID', 'Nome','E-mail'];
+        return ['ID', trans('labels.name'),trans('labels.email')];
     }
 
     /**
@@ -54,9 +54,9 @@ class User extends Authenticatable implements TableInterface
         switch ($header){
             case 'ID':
                 return $this->id;
-            case 'Nome':
+            case trans('labels.name'):
                 return $this->name;
-            case 'E-mail':
+            case trans('labels.email'):
                 return $this->email;
         }
     }
