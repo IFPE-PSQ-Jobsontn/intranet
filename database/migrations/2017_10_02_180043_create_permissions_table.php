@@ -25,8 +25,8 @@ class CreatePermissionsTable extends Migration
             $table->increments('id');
             $table->integer('permission_id')->unsigned();
             $table->integer('role_id')->unsigned();
-            $table->foreign('permission_id')->references('id')->on('permissions')->onDelete('restrict');
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('restrict');
+            $table->foreign('permission_id')->references('id')->on('permissions')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 
