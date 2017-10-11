@@ -1,13 +1,6 @@
 <?php
 
 return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Pagination Language Lines
-    |--------------------------------------------------------------------------
-    |
-    */
 // A
     'actions' => 'Ações',
 // B
@@ -36,11 +29,14 @@ return [
     'options' => 'Opções',
 // P
     'password' => 'Senha',
+    'password_confirm' => 'Confirmar Senha',
 // Q
 // R
     'register' => 'Cadastro',
     'registration' => 'Cadastros',
     'remember_me' => 'Lembrar-me',
+    'reset_password' => 'Redefinir senha',
+    'reset_password_link' => 'Enviar Link para Redefinir Senha',
     'roles' => 'Funções',
 // S
     'save' => 'Salvar',

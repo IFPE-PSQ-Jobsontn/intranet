@@ -6,6 +6,7 @@ use Bootstrapper\Interfaces\TableInterface;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ResetPassword;
 
 class User extends Authenticatable implements TableInterface
 {
@@ -72,6 +73,11 @@ class User extends Authenticatable implements TableInterface
             if ($this->roles->contains('name', $role->name)) $retorno = true;
         }
         return $retorno;
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token));
     }
 
 }
