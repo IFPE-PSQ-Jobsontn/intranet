@@ -25,7 +25,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('departament_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('person_id')->references('id')->on('people')->onUpdate('cascade')->onDelete('restrict');
+            //$table->foreign('person_id')->references('id')->on('people')->onUpdate('cascade')->onDelete('restrict');
             $table->foreign('departament_id')->references('id')->on('departments')->onUpdate('cascade')->onDelete('restrict');
         });
     }

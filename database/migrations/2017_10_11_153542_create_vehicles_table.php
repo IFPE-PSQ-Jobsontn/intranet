@@ -12,24 +12,9 @@ class CreateVehiclesTable extends Migration
      * @return void
      */
 
-    public $fuel = [
-        'ÁLCOOL',
-        'ÁLCOOL / GNC',
-        'DIESEL',
-        'DIESEL / GNC',
-        'ELFONT EX',
-        'ELFONT IN',
-        'GÁS METANO',
-        'GASOGÊNIO',
-        'GASOL / GNC',
-        'GASOLINA',
-        'ÁLCOOL / GASOLINA',
-        'ÁLCOOL / GASOL / GNV',
-    ];
-
-    public function up($fuel)
+    public function up()
     {
-        Schema::create('vehicles', function (Blueprint $table) use ($fuel) {
+        Schema::create('vehicles', function (Blueprint $table)  {
             $table->increments('id');
             $table->string('car_plate', 7)->unique();
             $table->string('renavam', 9)->unique();
@@ -42,11 +27,26 @@ class CreateVehiclesTable extends Migration
             $table->string('bodywork', 100);
             $table->string('type', 100);
             $table->string('color', 50);
-            $table->enum('fuel', $fuel);
+            $table->enum('fuel',
+                array(
+                    'ÁLCOOL',
+                    'ÁLCOOL / GNC',
+                    'DIESEL',
+                    'DIESEL / GNC',
+                    'ELFONT EX',
+                    'ELFONT IN',
+                    'GÁS METANO',
+                    'GASOGÊNIO',
+                    'GASOL / GNC',
+                    'GASOLINA',
+                    'ÁLCOOL / GASOLINA',
+                    'ÁLCOOL / GASOL / GNV'
+                )
+            );
             $table->integer('person_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('person_id')->references('id')->on('people')->onUpdate('cascade')->onDelete('restrict');
+            //$table->foreign('person_id')->references('id')->on('people')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 
