@@ -21,12 +21,12 @@ class CreateVehiclesTable extends Migration
             $table->string('chassis', 17)->unique();
             $table->integer('year_manufacture')->unsigned();
             $table->integer('year_model')->unsigned();
-            $table->string('manufacturer', 255);
-            $table->string('model', 255);
-            $table->string('species', 100);
-            $table->string('bodywork', 100);
-            $table->string('type', 100);
-            $table->string('color', 50);
+            $table->string('manufacturer');
+            $table->string('model');
+            $table->string('species');
+            $table->string('bodywork');
+            $table->string('type');
+            $table->string('color');
             $table->enum('fuel',
                 array(
                     'ÁLCOOL',

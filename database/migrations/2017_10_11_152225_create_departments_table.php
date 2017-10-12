@@ -16,18 +16,15 @@ class CreateDepartmentsTable extends Migration
         Schema::create('departments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('parent')->unsigned();
-            $table->string('name', 255)->unique();
-            $table->string('initials', 5)->unique();
-            $table->string('path', 255)->unique();
-            $table->string('email', 255)->unique();
-            $table->string('contact', 14)->unique();
+            $table->string('name')->unique();
+            $table->string('initials', 10)->unique();
+            $table->string('path')->unique();
+            $table->string('email')->unique();
+            $table->string('contact', 14);
             $table->integer('manager')->unsigned();
             $table->integer('substitute_manager')->unsigned();
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('parent')->references('id')->on('departments')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('manager')->references('id')->on('employees')->onUpdate('cascade')->onDelete('restrict');
-            $table->foreign('substitute_manager')->references('id')->on('employees')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 
