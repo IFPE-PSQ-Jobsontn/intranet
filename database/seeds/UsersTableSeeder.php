@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name' => 'Administrador',
             'email' => 'cgti@pesqueira.ifpe.edu.br',
-            'password' => bcrypt('secret#T1'),
+            'password' => bcrypt('159'),
         ]);
         User::create([
             'name' => 'Jobson Tenório do Nascimento',
