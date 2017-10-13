@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(DenatranFuelsTableSeeder::class);
         $this->call(DenatranSpeciesTableSeeder::class);
         $this->call(DenatranTypesTableSeeder::class);
+        $this->call(StatesTableSeeder::class);
     }
 }

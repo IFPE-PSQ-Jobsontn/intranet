@@ -15,6 +15,11 @@ class CreatePrivateVehiclesTable extends Migration
     {
         Schema::create('private_vehicles', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('car_plate', 7)->unique();
+            $table->string('manufacturer');
+            $table->string('model');
+            $table->integer('color_id')->unsigned();
+            $table->integer('person_id')->unsigned();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -29,6 +29,9 @@ class CreateVehiclesTable extends Migration
             $table->integer('capacity')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->integer('color_id')->unsigned();
+            $table->integer('mileage')->unsigned();
+            $table->integer('next_maintenance_mileage')->unsigned();
+            $table->date('next_maintenance_date');
             $table->timestamps();
             $table->softDeletes();
         });
