@@ -11,13 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@home')->name('index');
+
+Auth::routes();
 
 Route::prefix('admin')->group(function (){
-    Auth::routes();
-
     Route::group([
         'namespace'     => 'Admin\\',
         'as'            => 'admin.',
@@ -33,7 +31,4 @@ Route::prefix('admin')->group(function (){
     ], function(){
         Route::resource('roles','RolesController');
     });
-
 });
-
-Route::get('/home', 'HomeController@index')->name('home');

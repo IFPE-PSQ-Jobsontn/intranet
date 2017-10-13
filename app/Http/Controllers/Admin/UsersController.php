@@ -6,20 +6,27 @@ use App\Forms\UserForm;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 use Kris\LaravelFormBuilder\Form;
 
 class UsersController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('can:r_users');
+        $this->middleware('can:crud_users')->except(['index', 'show']);
+    }
+
     public function index()
     {
-        Gate::authorize('r_users');
         $users = User::paginate(10);
         return view('admin.users.index', compact('users'));
     }
@@ -31,7 +38,6 @@ class UsersController extends Controller
      */
     public function create()
     {
-        Gate::authorize('crud_users');
         $form = \FormBuilder::create(UserForm::class, [
             'url' => route('admin.users.store'),
             'method' => 'POST'
@@ -47,7 +53,6 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize('crud_users');
         /** @var Form $form */
         $form = \FormBuilder::create(UserForm::class);
         if (!$form->isValid()){
@@ -73,7 +78,6 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        Gate::authorize('r_users');
         return view('admin.users.show', compact('user'));
     }
 
@@ -85,7 +89,6 @@ class UsersController extends Controller
      */
     public function edit(User $user)
     {
-        Gate::authorize('crud_users');
         $form = \FormBuilder::create(UserForm::class, [
             'url' => route('admin.users.update', ['user' => $user->id]),
             'method' => 'PUT',
@@ -103,7 +106,6 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        Gate::authorize('crud_users');
         /** @var Form $form */
         $form = \FormBuilder::create(UserForm::class, [
             'data' => ['id' => $user->id]
@@ -128,7 +130,6 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        Gate::authorize('crud_users');
         try {
             $user->delete();
         } catch (Exception $e) {
