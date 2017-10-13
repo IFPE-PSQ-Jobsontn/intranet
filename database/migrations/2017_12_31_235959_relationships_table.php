@@ -37,7 +37,7 @@ class RelationshipsTable extends Migration
         });
         //Relações 1:N - Tabela de Usuários
         Schema::table('users', function (Blueprint $table) {
-            $table->foreign('employee_id')->references('id')->on('employee')->onUpdate('cascade')->onDelete('restrict');
+            $table->foreign('employee_id')->references('id')->on('employees')->onUpdate('cascade')->onDelete('restrict');
         });
         //Relações 1:N - Tabela de Setores
         Schema::table('departments', function (Blueprint $table) {
