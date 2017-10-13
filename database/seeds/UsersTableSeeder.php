@@ -34,12 +34,12 @@ class UsersTableSeeder extends Seeder
         ]);
         User::create([
             'name' => 'Wdercleison Ventura De Farias',
-            'email' => 'valter@pesqueira.ifpe.edu.br',
+            'email' => 'wdercleison.farias@pesqueira.ifpe.edu.br',
             'password' => bcrypt('123'),
         ]);
         User::create([
             'name' => 'Valter Leal Guimarães',
-            'email' => 'wdercleison.farias@pesqueira.ifpe.edu.br',
+            'email' => 'valter@pesqueira.ifpe.edu.br',
             'password' => bcrypt('123'),
         ]);
         User::create([
