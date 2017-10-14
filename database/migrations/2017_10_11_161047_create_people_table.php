@@ -15,15 +15,15 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('cpf')->unique();
+            $table->string('cpf', 11)->unique();
             $table->string('registration_number');
             $table->string('registry_entity');
             $table->integer('registry_entity_uf_id')->unsigned();
-            $table->date('registration_date');
+            $table->date('registration_date')->nullable();
             $table->string('name');
             $table->string('mother');
             $table->string('father');
-            $table->date('birth_date');
+            $table->date('birth_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

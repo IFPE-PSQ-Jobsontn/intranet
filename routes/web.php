@@ -19,16 +19,22 @@ Route::prefix('admin')->group(function (){
     Route::group([
         'namespace'     => 'Admin\\',
         'as'            => 'admin.',
-        'middleware'    => ['auth', 'can:r_users' ],
+        'middleware'    => 'auth'
     ], function(){
         Route::resource('users','UsersController');
     });
-
     Route::group([
         'namespace'     => 'Admin\\',
         'as'            => 'admin.',
         'middleware'    => 'auth'
     ], function(){
         Route::resource('roles','RolesController');
+    });
+    Route::group([
+        'namespace'     => 'Admin\\',
+        'as'            => 'admin.',
+        'middleware'    => 'auth'
+    ], function(){
+        Route::resource('people','PeopleController');
     });
 });

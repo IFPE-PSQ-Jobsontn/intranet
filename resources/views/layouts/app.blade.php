@@ -17,10 +17,14 @@
     <div id="app">
         @php
             $navbar = Navbar::withBrand(config('app.name'))->inverse();
-
+            // MENU DINAMICO
             $display_users = \Illuminate\Support\Facades\Gate::allows('r_users');
             $display_roles = \Illuminate\Support\Facades\Gate::allows('r_roles');
-
+            $display_people = \Illuminate\Support\Facades\Gate::allows('r_people');
+            // MENU FIXO
+            $display_users = true;
+            $display_roles = true;
+            $display_people = true;
             if (Auth::check()){
                 $menu_registration = [
                     [ trans('labels.registration'),
@@ -37,6 +41,13 @@
                                 'title' => trans('labels.roles'),
                                 'linkAttributes' => [
                                     'style' => 'display: ' . ($display_roles ? 'block;' : 'none;'),
+                                ]
+                             ],
+                             [
+                                'link' => route('admin.people.index'),
+                                'title' => trans('labels.people'),
+                                'linkAttributes' => [
+                                    'style' => 'display: ' . ($display_people ? 'block;' : 'none;'),
                                 ]
                              ],
                         ]

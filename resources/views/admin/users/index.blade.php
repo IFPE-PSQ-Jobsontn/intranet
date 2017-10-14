@@ -11,6 +11,10 @@
             @endphp
         </div>
         <div class="row">
+            @if ($users->count() == 0)
+                <br>
+                {!! Alert::danger(trans('labels.no_records')) !!}
+            @else
             {!!
                 Table::withContents($users->items())
                 ->striped()
@@ -25,6 +29,7 @@
 
                 })
             !!}
+            @endif
             {!! $users->links() !!}
         </div>
     </div>
